@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
     <head>
-	<meta name="generator" content="Hugo 0.110.0">
+	<meta name="generator" content="Hugo 0.123.8">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
@@ -9,8 +9,8 @@
 <meta property="og:description" content="SinTod&#39;s Blog" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.sintod.fun/" /><meta property="og:site_name" content="SinTod&#39;s Blog" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="SinTod&#39;s Blog"/>
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="SinTod&#39;s Blog"/>
 <meta name="twitter:description" content="SinTod&#39;s Blog"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -68,7 +68,7 @@
         <a href="/posts/docker-%E9%83%A8%E7%BD%B2%E5%BC%80%E5%90%AF-ssh-%E7%AB%AF%E5%8F%A3%E7%9A%84-ubuntu-%E7%94%A8%E4%BA%8E%E8%B0%83%E8%AF%95%E6%9C%BA%E5%99%A8/">docker 部署开启 SSH 端口的 ubuntu 用于调试机器</a>
     </h1><div class="post-meta"><span class="post-author"><a href="https://www.sintod.fun/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>SinTod</a></span>&nbsp;<span class="post-publish">published on <time datetime="2019-06-12">2019-06-12</time></span>&nbsp;<span class="post-category">included in <a href="/categories/%E8%BF%90%E7%BB%B4%E7%9B%B8%E5%85%B3/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>运维相关</a></span></div><div class="content">Dockerfile FROM ubuntu:16.04 RUN sed -i &#39;s/archive.ubuntu.com/mirrors.ustc.edu.cn/g&#39; /etc/apt/sources.list RUN apt-get update &amp;&amp; apt-get install -y openssh-server RUN mkdir /var/run/sshd RUN echo &#39;root:password&#39; | chpasswd RUN sed -i &#39;s/PermitRootLogin prohibit-password/PermitRootLogin yes/&#39; /etc/ssh/sshd_config # SSH login fix. Otherwise user is kicked off after login RUN sed &#39;s@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g&#39; -i /etc/pam.d/sshd ENV NOTVISIBLE &#34;in users profile&#34; RUN echo &#34;export VISIBLE=now&#34; &gt;&gt; /etc/profile EXPOSE 22 CMD [&#34;/usr/sbin/sshd&#34;, &#34;-D&#34;] 构建 image docker build</div><div class="post-footer">
         <a href="/posts/docker-%E9%83%A8%E7%BD%B2%E5%BC%80%E5%90%AF-ssh-%E7%AB%AF%E5%8F%A3%E7%9A%84-ubuntu-%E7%94%A8%E4%BA%8E%E8%B0%83%E8%AF%95%E6%9C%BA%E5%99%A8/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">docker</a></div></div>
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/posts/ldap%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/">LDAP相关概念</a>
     </h1><div class="post-meta"><span class="post-author"><a href="https://www.sintod.fun/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>SinTod</a></span>&nbsp;<span class="post-publish">published on <time datetime="2019-06-12">2019-06-12</time></span>&nbsp;<span class="post-category">included in <a href="/categories/%E8%BF%90%E7%BB%B4%E7%9B%B8%E5%85%B3/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>运维相关</a></span></div><div class="content">令人头疼的多系统账号管理 大家是否有以下困扰？ 公司有多套不同的办公系统 每个系统都有不同的账号密码，有时候账号密码容易记混 内部项目每开发一个都要</div><div class="post-footer">
@@ -78,11 +78,11 @@
         <a href="/posts/%E7%94%A8-docker-%E4%B8%89%E6%AD%A5%E6%90%AD%E5%BB%BA-openldap-%E6%9C%8D%E5%8A%A1%E5%8C%85%E5%90%AB-phpldapadmin-self-service-password/">用 docker 三步搭建 OpenLDAP 服务（包含 phpLDAPadmin Self Service Password）</a>
     </h1><div class="post-meta"><span class="post-author"><a href="https://www.sintod.fun/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>SinTod</a></span>&nbsp;<span class="post-publish">published on <time datetime="2019-06-12">2019-06-12</time></span>&nbsp;<span class="post-category">included in <a href="/categories/%E8%BF%90%E7%BB%B4%E7%9B%B8%E5%85%B3/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>运维相关</a></span></div><div class="content">启动 OpenLDAP 容器 docker run -p 389:389 -p 636:636 --env LDAP_ORGANISATION=&#34;example&#34; --env LDAP_DOMAIN=&#34;example.com&#34; \ --env LDAP_ADMIN_PASSWORD=&#34;admin&#34; --detach --name openldap osixia/openldap 上面的域名按需改成自己公司的域名 如需数据卷挂载请用以下命令 docker run --volume /data/slapd/database:/var/lib/ldap \ --volume /data/slapd/config:/etc/ldap/slapd.d \ --detach osixia/openldap:1.2.4 启动 phpLDAPadmin 容器 docker run -p 8443:443</div><div class="post-footer">
         <a href="/posts/%E7%94%A8-docker-%E4%B8%89%E6%AD%A5%E6%90%AD%E5%BB%BA-openldap-%E6%9C%8D%E5%8A%A1%E5%8C%85%E5%90%AB-phpldapadmin-self-service-password/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">docker</a>,&nbsp;<a href="/tags/ldap/">LDAP</a></div></div>
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/ldap/">LDAP</a></div></div>
 </article></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line"><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://file.sintod.fun/upyun/%E5%8F%88%E6%8B%8D%E4%BA%91_logo5.png"width="60" height="29"/></a></div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.110.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.sintod.fun/" target="_blank">SinTod</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        <div class="footer-container"><div class="footer-line"><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://file.sintod.fun/upyun/%E5%8F%88%E6%8B%8D%E4%BA%91_logo5.png"width="60" height="29"/></a></div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.123.8">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.sintod.fun/" target="_blank">SinTod</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 

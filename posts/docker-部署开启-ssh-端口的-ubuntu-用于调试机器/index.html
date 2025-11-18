@@ -10,8 +10,8 @@
 <meta property="og:url" content="https://www.sintod.fun/posts/docker-%E9%83%A8%E7%BD%B2%E5%BC%80%E5%90%AF-ssh-%E7%AB%AF%E5%8F%A3%E7%9A%84-ubuntu-%E7%94%A8%E4%BA%8E%E8%B0%83%E8%AF%95%E6%9C%BA%E5%99%A8/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2019-06-12T17:08:10+08:00" />
 <meta property="article:modified_time" content="2019-06-12T17:08:10+08:00" /><meta property="og:site_name" content="SinTod&#39;s Blog" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="docker 部署开启 SSH 端口的 ubuntu 用于调试机器"/>
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="docker 部署开启 SSH 端口的 ubuntu 用于调试机器"/>
 <meta name="twitter:description" content="Dockerfile FROM ubuntu:16.04 RUN sed -i &#39;s/archive.ubuntu.com/mirrors.ustc.edu.cn/g&#39; /etc/apt/sources.list RUN apt-get update &amp;&amp; apt-get install -y openssh-server RUN mkdir /var/run/sshd RUN echo &#39;root:password&#39; | chpasswd RUN sed -i &#39;s/PermitRootLogin prohibit-password/PermitRootLogin yes/&#39; /etc/ssh/sshd_config # SSH login fix. Otherwise user is kicked off after login RUN sed &#39;s@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g&#39; -i /etc/pam.d/sshd ENV NOTVISIBLE &#34;in users profile&#34; RUN echo &#34;export VISIBLE=now&#34; &gt;&gt; /etc/profile EXPOSE 22 CMD [&#34;/usr/sbin/sshd&#34;, &#34;-D&#34;] 构建 image docker build"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -124,7 +124,7 @@
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">docker</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
@@ -134,8 +134,8 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line"><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://file.sintod.fun/upyun/%E5%8F%88%E6%8B%8D%E4%BA%91_logo5.png"width="60" height="29"/></a></div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.110.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.sintod.fun/" target="_blank">SinTod</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        <div class="footer-container"><div class="footer-line"><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://file.sintod.fun/upyun/%E5%8F%88%E6%8B%8D%E4%BA%91_logo5.png"width="60" height="29"/></a></div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.123.8">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.sintod.fun/" target="_blank">SinTod</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
